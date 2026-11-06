@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -138,7 +137,7 @@ body {
   font-size: 22px;
   font-weight: 600;
   color: #2c3e50;
-  margin-top: 30px;
+  margin-top: 42px;
   margin-bottom: 25px;
   letter-spacing: 1px;
 }
@@ -183,7 +182,7 @@ body {
   font-family: 'Cinzel', serif;
   font-size: 16px;
   color: #2d3748;
-  margin-top: 35px;
+  margin-top: 15px;
   letter-spacing: 1.5px;
   display: flex;
   align-items: center;
@@ -220,7 +219,7 @@ body {
   z-index: -1;
 }
 
-/* COUNTDOWN */
+/* COUNTDOWN - FLOWING GRADIENT */
 
 #countdown-section {
   position: relative;
@@ -229,14 +228,16 @@ body {
   padding: 75px 20px;
   overflow: hidden;
   background:
-    radial-gradient(ellipse at 15% 20%, rgba(255,255,255,.85), transparent 48%),
-    radial-gradient(ellipse at 85% 75%, rgba(190,215,239,.55), transparent 50%),
+    radial-gradient(ellipse at 10% 15%, rgba(255,255,255,.9), transparent 45%),
+    radial-gradient(ellipse at 85% 25%, rgba(177,207,235,.55), transparent 48%),
+    radial-gradient(ellipse at 25% 85%, rgba(205,225,243,.65), transparent 50%),
+    radial-gradient(ellipse at 90% 90%, rgba(255,255,255,.8), transparent 45%),
     linear-gradient(
-      180deg,
+      135deg,
       #f0f4f8 0%,
-      #eaf1f8 22%,
-      #dce8f4 48%,
-      #eaf1f8 76%,
+      #e6eff8 25%,
+      #d5e5f4 50%,
+      #e8f1f9 75%,
       #f0f4f8 100%
     );
 }
@@ -272,61 +273,49 @@ body {
   }
 }
 
+/* COUNTDOWN WITHOUT BOX */
+
 .countdown-frame {
   position: relative;
-  border: 1px solid rgba(142,174,207,.65);
-  padding: 28px 22px;
-  border-radius: 18px;
-  background: rgba(255,255,255,.68);
-  box-shadow:
-    0 10px 30px rgba(54,89,125,.08),
-    inset 0 0 20px rgba(255,255,255,.7);
-  backdrop-filter: blur(8px);
-  max-width: 410px;
+  border: none;
+  padding: 25px 10px;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+  max-width: 450px;
   width: 100%;
   z-index: 2;
 }
 
 .countdown-frame::before,
 .countdown-frame::after {
-  content: "✧";
-  position: absolute;
-  color: #8eafd0;
-  font-size: 23px;
-}
-
-.countdown-frame::before {
-  top: 9px;
-  left: 12px;
-}
-
-.countdown-frame::after {
-  bottom: 9px;
-  right: 12px;
+  display: none;
 }
 
 .countdown-title {
   font-family: 'Cinzel', serif;
-  font-size: 16px;
+  font-size: 18px;
   color: #2c3e50;
-  margin-bottom: 22px;
+  margin-bottom: 28px;
   letter-spacing: 1.5px;
 }
 
 .timer-grid {
   display: flex;
   justify-content: center;
-  gap: 12px;
+  gap: 14px;
   font-family: 'Cinzel', serif;
 }
 
 .timer-box {
-  background: linear-gradient(145deg, #ffffff, #e6f0fa);
+  background: rgba(255,255,255,.38);
   padding: 12px 8px;
-  border: 1px solid rgba(176,196,222,.7);
-  border-radius: 10px;
+  border: 1px solid rgba(176,196,222,.45);
+  border-radius: 12px;
   min-width: 62px;
-  box-shadow: 0 3px 10px rgba(49,130,206,.08);
+  box-shadow: none;
+  backdrop-filter: blur(3px);
 }
 
 .timer-num {
@@ -343,7 +332,7 @@ body {
   letter-spacing: .5px;
 }
 
-/* TIMELINE - CENTERED HEADING, LEFT-ALIGNED EVENTS */
+/* TIMELINE */
 
 #timeline-section {
   background-image: url('3.jpg');
@@ -361,13 +350,9 @@ body {
   transform: none;
 }
 
-/* Remove vertical line */
-
 .timeline-container::before {
   display: none;
 }
-
-/* Heading stays centered at top */
 
 .timeline-title {
   font-family: 'Great Vibes', cursive;
@@ -378,8 +363,6 @@ body {
   padding: 0;
 }
 
-/* Events aligned to left */
-
 .timeline-item {
   position: static;
   width: 100%;
@@ -387,8 +370,6 @@ body {
   padding: 0;
   text-align: left;
 }
-
-/* Remove dots */
 
 .timeline-item::before {
   display: none;
@@ -432,27 +413,28 @@ body {
   background-repeat: no-repeat;
   background-color: #f0f4f8;
   text-align: center;
-  justify-content: flex-end;
+  justify-content: flex-start;
+  padding-top: 40px;
   padding-bottom: 30px;
 }
 
 .venue-area {
-  margin-top: 80px;
-  margin-bottom: 20px;
-  transform: translateY(-35px);
+  margin-top: 40px;
+  margin-bottom: 10px;
+  transform: translateY(-10px);
 }
 
 .venue-title {
   font-family: 'Great Vibes', cursive;
-  font-size: 68px;
+  font-size: 56px;
   color: #1a365d;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
   transform: rotate(-5deg);
 }
 
 .venue-hall {
   font-family: 'Cinzel', serif;
-  font-size: 20px;
+  font-size: 17px;
   color: #3182ce;
   margin-bottom: 8px;
   font-weight: bold;
@@ -460,16 +442,19 @@ body {
 }
 
 .venue-address {
-  font-size: 13px;
+  font-size: 12px;
   color: #2c3e50;
-  line-height: 1.6;
+  line-height: 1.7;
   margin-top: 8px;
+  max-width: 310px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* RSVP */
 
 .rsvp-container {
-  margin-top: 45px;
+  margin-top: 65px;
   margin-bottom: 5px;
   background: rgba(255,255,255,.88);
   padding: 15px 20px;
@@ -478,7 +463,7 @@ body {
   width: 100%;
   box-shadow: 0 4px 12px rgba(0,0,0,.06);
   backdrop-filter: blur(5px);
-  transform: translateY(20px);
+  transform: translateY(25px);
 }
 
 .rsvp-msg {
@@ -541,6 +526,7 @@ body {
   .date-display {
     gap: 10px;
     font-size: 15px;
+    margin-top: 10px;
   }
 
   .date-line { width: 25px; }
@@ -554,7 +540,12 @@ body {
 
   .timer-num { font-size: 17px; }
 
-  /* Mobile timeline: centered heading, left-aligned events */
+  .countdown-title {
+    font-size: 16px;
+    margin-bottom: 24px;
+  }
+
+  /* MOBILE TIMELINE */
 
   #timeline-section {
     padding: 55px 28px 40px;
@@ -576,7 +567,7 @@ body {
 
   .timeline-item {
     width: 100%;
-    margin: 0 0 34px;
+    margin: 0 0 38px;
     padding: 0;
     text-align: left;
   }
@@ -601,11 +592,30 @@ body {
     line-height: 1.6;
   }
 
-  .venue-title { font-size: 58px; }
+  /* MOBILE VENUE */
 
-  .venue-hall { font-size: 17px; }
+  #venue-section {
+    padding-top: 30px;
+    padding-bottom: 25px;
+  }
 
-  .rsvp-container { max-width: 300px; }
+  .venue-area {
+    margin-top: 25px;
+    margin-bottom: 5px;
+    transform: translateY(-10px);
+  }
+
+  .venue-title { font-size: 49px; }
+
+  .venue-hall { font-size: 15px; }
+
+  .venue-address { font-size: 11px; }
+
+  .rsvp-container {
+    max-width: 300px;
+    margin-top: 55px;
+    transform: translateY(20px);
+  }
 }
 </style>
 </head>
@@ -782,6 +792,14 @@ for (let i = 0; i < 35; i++) {
       </div>
     </div>
 
+    <div class="timeline-item">
+      <div class="timeline-time">8:00 PM</div>
+      <div class="timeline-info">
+        <h4 id="t6">After Party</h4>
+        <p id="d6">Let's keep the celebration going!</p>
+      </div>
+    </div>
+
   </div>
 
 </section>
@@ -801,7 +819,9 @@ for (let i = 0; i < 35; i++) {
     </div>
 
     <div class="venue-address" id="venue-addr">
-      Avenue Coteaux, Grand Ballroom
+      Avenue Coteaux, Grand Ballroom<br>
+      Near Crystal Gardens, Kinshasa<br>
+      Democratic Republic of the Congo
     </div>
 
   </div>
@@ -903,11 +923,17 @@ function selectLang(lang) {
     document.getElementById('d5').innerText =
       "Chanson d'anniversaire";
 
+    document.getElementById('t6').innerText =
+      "Après-Fête";
+
+    document.getElementById('d6').innerText =
+      "Prolongeons la fête ensemble !";
+
     document.getElementById('venue-heading').innerText =
       "Le Lieu";
 
-    document.getElementById('venue-addr').innerText =
-      "Avenue Coteaux, Grande Salle";
+    document.getElementById('venue-addr').innerHTML =
+      "Avenue Coteaux, Grande Salle<br>Près de Crystal Gardens, Kinshasa<br>République démocratique du Congo";
 
     document.getElementById('rsvp-msg-text').innerText =
       "Nous avons hâte de fêter avec vous !";
@@ -971,11 +997,17 @@ function selectLang(lang) {
     document.getElementById('d5').innerText =
       "Sweet moments & birthday song";
 
+    document.getElementById('t6').innerText =
+      "After Party";
+
+    document.getElementById('d6').innerText =
+      "Let's keep the celebration going!";
+
     document.getElementById('venue-heading').innerText =
       "The Venue";
 
-    document.getElementById('venue-addr').innerText =
-      "Avenue Coteaux, Grand Ballroom";
+    document.getElementById('venue-addr').innerHTML =
+      "Avenue Coteaux, Grand Ballroom<br>Near Crystal Gardens, Kinshasa<br>Democratic Republic of the Congo";
 
     document.getElementById('rsvp-msg-text').innerText =
       "We look forward to celebrating with you!";
