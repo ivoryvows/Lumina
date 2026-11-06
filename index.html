@@ -11,6 +11,7 @@
 if ('scrollRestoration' in history) {
   history.scrollRestoration = 'manual';
 }
+
 window.addEventListener('pageshow', function () {
   window.scrollTo(0, 0);
 });
@@ -36,6 +37,25 @@ body {
   color: #1a365d;
   overflow-x: hidden;
   position: relative;
+}
+
+/* LOCK PAGE UNTIL INVITATION IS OPENED */
+
+body.invitation-locked {
+  height: 100vh;
+  height: 100svh;
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+body.invitation-locked #envelope-section {
+  height: 100vh;
+  height: 100svh;
+  min-height: 100vh;
+  min-height: 100svh;
 }
 
 /* SNOW */
@@ -504,7 +524,7 @@ body {
 .venue-area {
   margin-top: 65px;
   margin-bottom: 15px;
-  transform: translateY(5px);
+  transform: translateY(-5px);
 }
 
 .venue-title {
@@ -716,7 +736,7 @@ body {
   .venue-area {
     margin-top: 55px;
     margin-bottom: 10px;
-    transform: translateY(12px);
+    transform: translateY(2px);
   }
 
   .venue-title {
@@ -756,7 +776,7 @@ body {
 </style>
 </head>
 
-<body>
+<body class="invitation-locked">
 
 <!-- SOFT PIANO MUSIC -->
 <audio id="background-music" loop preload="auto">
@@ -1046,9 +1066,12 @@ async function startInvitation() {
 
     envelopeSec.style.display = 'none';
 
+    /* UNLOCK PAGE SCROLLING AFTER TAP */
+    document.body.classList.remove('invitation-locked');
+
     const detailsSection = document.getElementById('details-section');
 
-    /* Avoid restoring an old scroll position */
+    /* Scroll to birthday details */
     document.documentElement.style.scrollBehavior = 'auto';
     window.scrollTo(0, detailsSection.offsetTop);
 
