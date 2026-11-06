@@ -24,7 +24,7 @@
       position: relative;
     }
 
-    /* Falling Snow/Dots Effect */
+    /* Falling Snow Effect */
     .snowflake {
       position: fixed;
       top: -10px;
@@ -40,7 +40,6 @@
       100% { transform: translateY(105vh) translateX(20px); opacity: 0.2; }
     }
 
-    /* Sections General */
     .section {
       min-height: 100vh;
       width: 100%;
@@ -54,7 +53,7 @@
       background-position: center;
     }
 
-    /* SECTION 1: OPEN.JPG (Envelope) */
+    /* SECTION 1: open.JPG */
     #envelope-section {
       background-image: url('open.JPG');
       transition: opacity 1.2s ease-in-out;
@@ -75,10 +74,10 @@
 
     .top-invite-text {
       position: absolute;
-      top: -220px;
+      top: -140px; 
       font-family: 'Cinzel', serif;
-      font-size: 22px;
-      color: #2c3e50;
+      font-size: 18px;
+      color: #1a365d;
       letter-spacing: 1px;
       font-weight: 600;
       text-shadow: 0 2px 4px rgba(255,255,255,0.8);
@@ -94,9 +93,9 @@
     .lang-box {
       background: rgba(255, 255, 255, 0.9);
       border: 2px solid #b0c4de;
-      padding: 12px 28px;
+      padding: 10px 24px;
       font-family: 'Cinzel', serif;
-      font-size: 16px;
+      font-size: 14px;
       color: #1a365d;
       cursor: pointer;
       border-radius: 8px;
@@ -108,7 +107,6 @@
       background: #1a365d;
       color: #ffffff;
       border-color: #1a365d;
-      transform: translateY(-2px);
     }
 
     /* SECTION 2: 2.JPG */
@@ -117,253 +115,230 @@
       text-align: center;
     }
 
-    .details-card {
-      max-width: 600px;
-      background: rgba(255, 255, 255, 0.75);
-      padding: 40px;
-      border-radius: 15px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-      backdrop-filter: blur(5px);
+    .details-direct-text {
+      max-width: 500px;
+      width: 100%;
+      padding: 20px;
     }
 
     .parents-text {
-      font-size: 20px;
+      font-size: 16px;
       font-weight: 500;
       color: #2c3e50;
-      margin-bottom: 8px;
+      margin-bottom: 4px;
       letter-spacing: 0.5px;
     }
 
     .invites-text {
-      font-size: 16px;
+      font-size: 13px;
       color: #4a5568;
-      margin-bottom: 20px;
+      margin-bottom: 12px;
       text-transform: uppercase;
-      letter-spacing: 2px;
+      letter-spacing: 1.5px;
     }
 
     .birthday-title {
       font-family: 'Great Vibes', cursive;
-      font-size: 55px;
+      font-size: 42px;
       color: #3182ce;
-      margin-bottom: 10px;
-      text-shadow: 0 2px 4px rgba(49, 130, 206, 0.2);
+      margin-bottom: 6px;
     }
 
     .child-name {
       font-family: 'Great Vibes', cursive;
-      font-size: 60px;
+      font-size: 48px;
       color: #2b6cb0;
-      margin: 15px 0;
+      margin: 8px 0;
     }
 
     .date-display {
       font-family: 'Cinzel', serif;
-      font-size: 18px;
+      font-size: 15px;
       color: #2d3748;
-      margin-top: 20px;
+      margin-top: 15px;
       letter-spacing: 1px;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 15px;
+      gap: 12px;
     }
 
     .date-line {
-      width: 40px;
+      width: 30px;
       height: 1px;
       background-color: #3182ce;
     }
 
     /* COUNTDOWN SECTION */
     #countdown-section {
-      background: linear-gradient(to bottom, #f0f4f8, #e2e8f0);
+      background: linear-gradient(to bottom, rgba(240, 244, 248, 1), rgba(226, 232, 240, 0.8), rgba(240, 244, 248, 1));
       text-align: center;
       padding: 60px 20px;
     }
 
     .countdown-frame {
-      border: 2px solid #cbd5e0;
-      padding: 30px;
-      border-radius: 20px;
-      background: white;
+      border: 1px solid #cbd5e0;
+      padding: 25px;
+      border-radius: 15px;
+      background: rgba(255, 255, 255, 0.85);
       box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-      max-width: 450px;
+      max-width: 420px;
       width: 100%;
     }
 
     .countdown-title {
       font-family: 'Cinzel', serif;
-      font-size: 20px;
+      font-size: 17px;
       color: #2c3e50;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
     }
 
     .timer-grid {
       display: flex;
       justify-content: center;
-      gap: 20px;
+      gap: 15px;
       font-family: 'Cinzel', serif;
     }
 
     .timer-box {
       background: #ebf8ff;
-      padding: 15px;
-      border-radius: 10px;
-      min-width: 70px;
+      padding: 12px;
+      border-radius: 8px;
+      min-width: 60px;
     }
 
     .timer-num {
-      font-size: 24px;
+      font-size: 20px;
       font-weight: bold;
       color: #2b6cb0;
     }
 
     .timer-label {
-      font-size: 12px;
+      font-size: 10px;
       color: #4a5568;
       text-transform: uppercase;
-      margin-top: 5px;
+      margin-top: 4px;
     }
 
-    /* SECTION 3: 3.JPG (Timeline) */
+    /* SECTION 3: 3.jpg (Lowercase) */
     #timeline-section {
-      background-image: url('3.JPG');
-      background-size: cover;
+      background-image: url('3.jpg');
+      align-items: flex-start;
+      padding-left: 8%;
     }
 
     .timeline-container {
-      position: relative;
-      max-width: 600px;
+      max-width: 450px;
       width: 100%;
       padding: 20px 0;
     }
 
     .timeline-title {
-      font-family: 'Cinzel', serif;
-      font-size: 26px;
-      text-align: center;
+      font-family: 'Great Vibes', cursive;
+      font-size: 45px;
       color: #1a365d;
-      margin-bottom: 30px;
-      font-weight: 600;
+      margin-bottom: 25px;
+      margin-top: -30px;
     }
 
     .timeline-item {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin: 25px 0;
-      background: rgba(255, 255, 255, 0.85);
-      padding: 15px 25px;
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-      backdrop-filter: blur(4px);
-    }
-
-    .timeline-info h4 {
-      font-family: 'Cinzel', serif;
-      font-size: 16px;
-      color: #2c3e50;
-    }
-
-    .timeline-info p {
-      font-size: 13px;
-      color: #718096;
-      margin-top: 3px;
+      margin-bottom: 20px;
+      text-align: left;
     }
 
     .timeline-time {
       font-weight: 600;
       color: #3182ce;
       font-size: 14px;
+      font-family: 'Cinzel', serif;
     }
 
-    /* SECTION 4: 5.JPG (Gallery & Venue & RSVP) */
+    .timeline-info h4 {
+      font-family: 'Cinzel', serif;
+      font-size: 15px;
+      color: #2c3e50;
+      margin-top: 2px;
+    }
+
+    .timeline-info p {
+      font-size: 12px;
+      color: #4a5568;
+      margin-top: 1px;
+    }
+
+    /* SECTION 4: 5.JPG */
     #venue-section {
       background-image: url('5.JPG');
       text-align: center;
+      justify-content: flex-end;
+      padding-bottom: 50px;
     }
 
-    .gallery-row {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      margin-bottom: 40px;
-      flex-wrap: wrap;
-    }
-
-    .gallery-img {
-      width: 110px;
-      height: 110px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid #b0c4de;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-
-    .venue-card {
-      background: rgba(255, 255, 255, 0.9);
-      padding: 30px;
-      border-radius: 15px;
-      max-width: 500px;
-      width: 100%;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-      margin-top: 100px;
+    .venue-area {
+      margin-top: 140px;
+      margin-bottom: 30px;
     }
 
     .venue-title {
-      font-family: 'Cinzel', serif;
-      font-size: 22px;
+      font-family: 'Great Vibes', cursive;
+      font-size: 55px;
       color: #1a365d;
       margin-bottom: 10px;
-      font-weight: bold;
     }
 
     .venue-hall {
-      font-family: 'Great Vibes', cursive;
-      font-size: 38px;
+      font-family: 'Cinzel', serif;
+      font-size: 20px;
       color: #3182ce;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
+      font-weight: bold;
     }
 
     .venue-address {
-      font-size: 14px;
-      color: #4a5568;
-      line-height: 1.5;
+      font-size: 13px;
+      color: #2c3e50;
+      line-height: 1.6;
+      margin-top: 15px;
     }
 
-    /* RSVP Section */
+    /* Bottom RSVP */
     .rsvp-container {
-      margin-top: 40px;
-      background: white;
-      padding: 30px;
-      border-radius: 15px;
-      max-width: 400px;
+      margin-top: 20px;
+      background: rgba(255, 255, 255, 0.85);
+      padding: 25px 30px;
+      border-radius: 12px;
+      max-width: 420px;
       width: 100%;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-      text-align: center;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+      backdrop-filter: blur(4px);
+    }
+
+    .rsvp-msg {
+      font-size: 13px;
+      color: #4a5568;
+      margin-bottom: 8px;
+      font-style: italic;
     }
 
     .rsvp-title {
       font-family: 'Cinzel', serif;
-      font-size: 20px;
+      font-size: 17px;
       color: #1a365d;
-      margin-bottom: 15px;
+      margin-bottom: 12px;
     }
 
     .rsvp-buttons {
       display: flex;
       justify-content: center;
       gap: 15px;
-      margin-top: 15px;
     }
 
     .rsvp-btn {
-      padding: 10px 30px;
+      padding: 8px 25px;
       font-family: 'Cinzel', serif;
-      font-size: 15px;
+      font-size: 13px;
       border: none;
-      border-radius: 25px;
+      border-radius: 20px;
       cursor: pointer;
       transition: all 0.3s ease;
     }
@@ -378,22 +353,18 @@
       color: #4a5568;
       border: 1px solid #cbd5e0;
     }
-
-    .rsvp-btn:hover {
-      transform: scale(1.05);
-    }
   </style>
 </head>
 <body>
 
-  <!-- SNOW / FALLING DOTS SCRIPT GENERATOR -->
+  <!-- SNOW EFFECT GENERATOR -->
   <script>
-    for (let i = 0; i < 40; i++) {
+    for (let i = 0; i < 35; i++) {
       let snow = document.createElement('div');
       snow.className = 'snowflake';
       snow.style.left = Math.random() * 100 + 'vw';
       snow.style.top = -Math.random() * 20 + 'vh';
-      let size = Math.random() * 6 + 3 + 'px';
+      let size = Math.random() * 5 + 2 + 'px';
       snow.style.width = size;
       snow.style.height = size;
       snow.style.animationDuration = Math.random() * 5 + 3 + 's';
@@ -402,7 +373,7 @@
     }
   </script>
 
-  <!-- SECTION 1: OPEN.JPG (Envelope & Language Selection) -->
+  <!-- SECTION 1: open.JPG -->
   <section id="envelope-section" class="section">
     <div class="envelope-content">
       <div id="invitation-text" class="top-invite-text">You are cordially invited</div>
@@ -413,10 +384,10 @@
     </div>
   </section>
 
-  <!-- SECTION 2: 2.JPG (Main Invitation Details) -->
+  <!-- SECTION 2: 2.JPG -->
   <section id="details-section" class="section">
-    <div class="details-card">
-      <div class="parents-text" id="parents-label">Mr. & Mrs. Abbad</div>
+    <div class="details-direct-text">
+      <div class="parents-text" id="parents-label">Mr. & Mrs. Alex</div>
       <div class="invites-text" id="invites-label">invites you to</div>
       <div class="birthday-title" id="birthday-label">8th Birthday</div>
       <div class="parents-text" id="of-label">of our beloved daughter</div>
@@ -433,7 +404,7 @@
   </section>
 
   <!-- COUNTDOWN SECTION -->
-  <section id="countdown-section" class="section" style="min-height: 50vh;">
+  <section id="countdown-section" class="section" style="min-height: 45vh;">
     <div class="countdown-frame">
       <div class="countdown-title" id="countdown-title">Countdown to Celebration</div>
       <div class="timer-grid">
@@ -457,88 +428,81 @@
     </div>
   </section>
 
-  <!-- SECTION 3: 3.JPG (Event Timeline) -->
+  <!-- SECTION 3: 3.jpg -->
   <section id="timeline-section" class="section">
     <div class="timeline-container">
       <h3 class="timeline-title" id="timeline-title-text">Event Timeline</h3>
       
       <div class="timeline-item">
+        <div class="timeline-time">4:00 PM</div>
         <div class="timeline-info">
           <h4 id="t1">Grand Entrance</h4>
           <p id="d1">Welcoming our little princess</p>
         </div>
-        <div class="timeline-time">4:00 PM</div>
       </div>
 
       <div class="timeline-item">
+        <div class="timeline-time">4:30 PM</div>
         <div class="timeline-info">
           <h4 id="t2">Photo Session</h4>
           <p id="d2">Capturing magical crystal memories</p>
         </div>
-        <div class="timeline-time">4:30 PM</div>
       </div>
 
       <div class="timeline-item">
+        <div class="timeline-time">5:15 PM</div>
         <div class="timeline-info">
           <h4 id="t3">Party Begins</h4>
           <p id="d3">Music and celebrations kick off</p>
         </div>
-        <div class="timeline-time">5:15 PM</div>
       </div>
 
       <div class="timeline-item">
+        <div class="timeline-time">6:00 PM</div>
         <div class="timeline-info">
           <h4 id="t4">Dance & Games</h4>
           <p id="d4">Fun activities for everyone</p>
         </div>
-        <div class="timeline-time">6:00 PM</div>
       </div>
 
       <div class="timeline-item">
+        <div class="timeline-time">7:30 PM</div>
         <div class="timeline-info">
           <h4 id="t5">Cake Cutting</h4>
           <p id="d5">Sweet moments & birthday song</p>
         </div>
-        <div class="timeline-time">7:30 PM</div>
       </div>
     </div>
   </section>
 
-  <!-- SECTION 4: 5.JPG (Venue & RSVP) -->
+  <!-- SECTION 4: 5.JPG -->
   <section id="venue-section" class="section">
-    <!-- 3 Pictures Display -->
-    <div class="gallery-row">
-      <img src="pic1.jpg" alt="Pic 1" class="gallery-img">
-      <img src="pic2.jpg" alt="Pic 2" class="gallery-img">
-      <img src="pic3.jpg" alt="Pic 3" class="gallery-img">
-    </div>
-
-    <!-- Venue Card -->
-    <div class="venue-card">
+    <!-- Venue Details -->
+    <div class="venue-area">
       <div class="venue-title" id="venue-heading">The Venue</div>
       <div class="venue-hall">Crystal Royal Palace</div>
       <div class="venue-address" id="venue-addr">Avenue Coteaux, Grand Ballroom<br>Kinshasa, Democratic Republic of the Congo</div>
     </div>
 
-    <!-- RSVP Component -->
+    <!-- RSVP Section at the Bottom -->
     <div class="rsvp-container">
+      <div class="rsvp-msg" id="rsvp-msg-text">We look forward to celebrating with you!</div>
       <div class="rsvp-title" id="rsvp-title">Will you attend?</div>
       <div class="rsvp-buttons">
-        <button class="rsvp-btn btn-yes" onclick="alert('Thank you for confirming! We look forward to seeing you.')" id="btn-yes">Yes</button>
+        <button class="rsvp-btn btn-yes" onclick="alert('Thank you for confirming!')" id="btn-yes">Yes</button>
         <button class="rsvp-btn btn-no" onclick="alert('We will miss you!')" id="btn-no">No</button>
       </div>
     </div>
   </section>
 
-  <!-- JAVASCRIPT LOGIC -->
+  <!-- SCRIPT LOGIC -->
   <script>
-    // Language Translation Function
     function selectLang(lang) {
       const envelopeSec = document.getElementById('envelope-section');
       
       if (lang === 'fr') {
         document.getElementById('invitation-text').innerText = "Vous êtes cordialement invités";
-        document.getElementById('parents-label').innerText = "M. et Mme Abbad";
+        document.getElementById('parents-label').innerText = "M. et Mme Alex";
         document.getElementById('invites-label').innerText = "vous invitent au";
         document.getElementById('birthday-label').innerText = "8ème Anniversaire";
         document.getElementById('of-label').innerText = "de notre chère fille";
@@ -551,19 +515,20 @@
         document.getElementById('d2').innerText = "Immortaliser ces précieux souvenirs";
         document.getElementById('t3').innerText = "Début de la Fête";
         document.getElementById('d3').innerText = "Musique et animations";
-        document.getElementById('t4').innerText &="Danse & Jeux";
+        document.getElementById('t4').innerText = "Danse & Jeux";
         document.getElementById('d4').innerText = "Activités amusantes pour tous";
         document.getElementById('t5').innerText = "Découpe du Gâteau";
         document.getElementById('d5').innerText = "Chanson d'anniversaire";
 
         document.getElementById('venue-heading').innerText = "Le Lieu";
         document.getElementById('venue-addr').innerText = "Avenue Coteaux, Grande Salle<br>Kinshasa, République Démocratique du Congo";
+        document.getElementById('rsvp-msg-text').innerText = "Nous avons hâte de fêter avec vous !";
         document.getElementById('rsvp-title').innerText = "Serez-vous présent ?";
         document.getElementById('btn-yes').innerText = "Oui";
         document.getElementById('btn-no').innerText = "Non";
       } else {
         document.getElementById('invitation-text').innerText = "You are cordially invited";
-        document.getElementById('parents-label').innerText = "Mr. & Mrs. Abbad";
+        document.getElementById('parents-label').innerText = "Mr. & Mrs. Alex";
         document.getElementById('invites-label').innerText = "invites you to";
         document.getElementById('birthday-label').innerText = "8th Birthday";
         document.getElementById('of-label').innerText = "of our beloved daughter";
@@ -583,12 +548,12 @@
 
         document.getElementById('venue-heading').innerText = "The Venue";
         document.getElementById('venue-addr').innerText = "Avenue Coteaux, Grand Ballroom<br>Kinshasa, Democratic Republic of the Congo";
+        document.getElementById('rsvp-msg-text').innerText = "We look forward to celebrating with you!";
         document.getElementById('rsvp-title').innerText = "Will you attend?";
         document.getElementById('btn-yes').innerText = "Yes";
         document.getElementById('btn-no').innerText = "No";
       }
 
-      // Smooth Fade-out and scroll to next section
       envelopeSec.classList.add('fade-out');
       setTimeout(() => {
         envelopeSec.style.display = 'none';
@@ -596,7 +561,7 @@
       }, 1000);
     }
 
-    // Countdown Timer Logic
+    // Timer Logic
     const eventDate = new Date("January 10, 2027 16:00:00").getTime();
     setInterval(() => {
       const now = new Date().getTime();
@@ -612,4 +577,3 @@
   </script>
 </body>
 </html>
-
