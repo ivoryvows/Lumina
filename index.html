@@ -64,14 +64,16 @@ body {
   background-position: center;
 }
 
-/* ENVELOPE */
+/* OPENING */
 
 #envelope-section {
   background-image: url('open.JPG');
   transition: opacity 1.2s ease-in-out;
 }
 
-#envelope-section.fade-out { opacity: 0; }
+#envelope-section.fade-out {
+  opacity: 0;
+}
 
 .envelope-content {
   position: absolute;
@@ -93,30 +95,54 @@ body {
   text-shadow: 0 2px 4px rgba(255,255,255,.8);
 }
 
-.lang-boxes-container {
+.start-button {
   position: absolute;
   top: 190px;
-  display: flex;
-  gap: 20px;
-}
-
-.lang-box {
+  padding: 13px 38px;
+  min-width: 175px;
   background: rgba(255,255,255,.9);
   border: 2px solid #b0c4de;
-  padding: 10px 24px;
+  border-radius: 9px;
+  color: #1a365d;
   font-family: 'Cinzel', serif;
   font-size: 14px;
-  color: #1a365d;
+  font-weight: 600;
+  letter-spacing: 1.5px;
   cursor: pointer;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0,0,0,.1);
+  box-shadow: 0 4px 14px rgba(0,0,0,.12);
   transition: all .3s ease;
 }
 
-.lang-box:hover {
+.start-button:hover {
   background: #1a365d;
   color: white;
   border-color: #1a365d;
+  transform: translateY(-2px);
+}
+
+/* MUSIC CONTROL */
+
+.music-control {
+  position: fixed;
+  right: 20px;
+  bottom: 22px;
+  width: 46px;
+  height: 46px;
+  border: 1px solid rgba(176,196,222,.9);
+  border-radius: 50%;
+  background: rgba(255,255,255,.9);
+  color: #1a365d;
+  font-size: 19px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10000;
+  box-shadow: 0 4px 12px rgba(0,0,0,.15);
+}
+
+.music-control.visible {
+  display: flex;
 }
 
 /* BIRTHDAY DETAILS */
@@ -137,9 +163,15 @@ body {
   font-size: 22px;
   font-weight: 600;
   color: #2c3e50;
-  margin-top: 42px;
+  margin-top: 30px;
   margin-bottom: 25px;
   letter-spacing: 1px;
+}
+
+/* Move Mr. & Mrs. slightly down */
+
+#parents-label {
+  margin-top: 48px;
 }
 
 .invites-text {
@@ -176,13 +208,13 @@ body {
   margin-bottom: 25px;
 }
 
-/* DATE */
+/* DATE - MOVED UP */
 
 .date-display {
   font-family: 'Cinzel', serif;
   font-size: 16px;
   color: #2d3748;
-  margin-top: 15px;
+  margin-top: 10px;
   letter-spacing: 1.5px;
   display: flex;
   align-items: center;
@@ -219,7 +251,7 @@ body {
   z-index: -1;
 }
 
-/* COUNTDOWN - FLOWING GRADIENT */
+/* COUNTDOWN */
 
 #countdown-section {
   position: relative;
@@ -228,16 +260,14 @@ body {
   padding: 75px 20px;
   overflow: hidden;
   background:
-    radial-gradient(ellipse at 10% 15%, rgba(255,255,255,.9), transparent 45%),
-    radial-gradient(ellipse at 85% 25%, rgba(177,207,235,.55), transparent 48%),
-    radial-gradient(ellipse at 25% 85%, rgba(205,225,243,.65), transparent 50%),
-    radial-gradient(ellipse at 90% 90%, rgba(255,255,255,.8), transparent 45%),
+    radial-gradient(ellipse at 15% 20%, rgba(255,255,255,.85), transparent 48%),
+    radial-gradient(ellipse at 85% 75%, rgba(190,215,239,.55), transparent 50%),
     linear-gradient(
-      135deg,
+      180deg,
       #f0f4f8 0%,
-      #e6eff8 25%,
-      #d5e5f4 50%,
-      #e8f1f9 75%,
+      #eaf1f8 22%,
+      #dce8f4 48%,
+      #eaf1f8 76%,
       #f0f4f8 100%
     );
 }
@@ -273,49 +303,61 @@ body {
   }
 }
 
-/* COUNTDOWN WITHOUT BOX */
-
 .countdown-frame {
   position: relative;
-  border: none;
-  padding: 25px 10px;
-  border-radius: 0;
-  background: transparent;
-  box-shadow: none;
-  backdrop-filter: none;
-  max-width: 450px;
+  border: 1px solid rgba(142,174,207,.65);
+  padding: 28px 22px;
+  border-radius: 18px;
+  background: rgba(255,255,255,.68);
+  box-shadow:
+    0 10px 30px rgba(54,89,125,.08),
+    inset 0 0 20px rgba(255,255,255,.7);
+  backdrop-filter: blur(8px);
+  max-width: 410px;
   width: 100%;
   z-index: 2;
 }
 
 .countdown-frame::before,
 .countdown-frame::after {
-  display: none;
+  content: "✧";
+  position: absolute;
+  color: #8eafd0;
+  font-size: 23px;
+}
+
+.countdown-frame::before {
+  top: 9px;
+  left: 12px;
+}
+
+.countdown-frame::after {
+  bottom: 9px;
+  right: 12px;
 }
 
 .countdown-title {
   font-family: 'Cinzel', serif;
-  font-size: 18px;
+  font-size: 16px;
   color: #2c3e50;
-  margin-bottom: 28px;
+  margin-bottom: 22px;
   letter-spacing: 1.5px;
 }
 
 .timer-grid {
   display: flex;
   justify-content: center;
-  gap: 14px;
+  gap: 12px;
   font-family: 'Cinzel', serif;
 }
 
 .timer-box {
-  background: rgba(255,255,255,.38);
+  background: linear-gradient(145deg, #ffffff, #e6f0fa);
   padding: 12px 8px;
-  border: 1px solid rgba(176,196,222,.45);
-  border-radius: 12px;
+  border: 1px solid rgba(176,196,222,.7);
+  border-radius: 10px;
   min-width: 62px;
-  box-shadow: none;
-  backdrop-filter: blur(3px);
+  box-shadow: 0 3px 10px rgba(49,130,206,.08);
 }
 
 .timer-num {
@@ -366,7 +408,7 @@ body {
 .timeline-item {
   position: static;
   width: 100%;
-  margin: 0 0 38px;
+  margin: 0 0 44px;
   padding: 0;
   text-align: left;
 }
@@ -413,20 +455,19 @@ body {
   background-repeat: no-repeat;
   background-color: #f0f4f8;
   text-align: center;
-  justify-content: flex-start;
-  padding-top: 40px;
+  justify-content: flex-end;
   padding-bottom: 30px;
 }
 
 .venue-area {
-  margin-top: 40px;
-  margin-bottom: 10px;
-  transform: translateY(-10px);
+  margin-top: 65px;
+  margin-bottom: 15px;
+  transform: translateY(-42px);
 }
 
 .venue-title {
   font-family: 'Great Vibes', cursive;
-  font-size: 56px;
+  font-size: 62px;
   color: #1a365d;
   margin-bottom: 10px;
   transform: rotate(-5deg);
@@ -434,7 +475,7 @@ body {
 
 .venue-hall {
   font-family: 'Cinzel', serif;
-  font-size: 17px;
+  font-size: 18px;
   color: #3182ce;
   margin-bottom: 8px;
   font-weight: bold;
@@ -446,7 +487,7 @@ body {
   color: #2c3e50;
   line-height: 1.7;
   margin-top: 8px;
-  max-width: 310px;
+  max-width: 330px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -454,7 +495,7 @@ body {
 /* RSVP */
 
 .rsvp-container {
-  margin-top: 65px;
+  margin-top: 85px;
   margin-bottom: 5px;
   background: rgba(255,255,255,.88);
   padding: 15px 20px;
@@ -463,7 +504,7 @@ body {
   width: 100%;
   box-shadow: 0 4px 12px rgba(0,0,0,.06);
   backdrop-filter: blur(5px);
-  transform: translateY(25px);
+  transform: translateY(28px);
 }
 
 .rsvp-msg {
@@ -507,7 +548,9 @@ body {
   border: 1px solid #cbd5e0;
 }
 
-.rsvp-btn:active { transform: scale(.96); }
+.rsvp-btn:active {
+  transform: scale(.96);
+}
 
 /* MOBILE */
 
@@ -517,35 +560,44 @@ body {
     margin-top: 15px;
   }
 
-  .parents-text { font-size: 20px; }
+  .parents-text {
+    font-size: 20px;
+  }
 
-  .birthday-title { font-size: 56px; }
+  #parents-label {
+    margin-top: 42px;
+  }
 
-  .child-name { font-size: 58px; }
+  .birthday-title {
+    font-size: 56px;
+  }
+
+  .child-name {
+    font-size: 58px;
+  }
 
   .date-display {
     gap: 10px;
     font-size: 15px;
-    margin-top: 10px;
+    margin-top: 8px;
   }
 
-  .date-line { width: 25px; }
+  .date-line {
+    width: 25px;
+  }
 
-  .timer-grid { gap: 7px; }
+  .timer-grid {
+    gap: 7px;
+  }
 
   .timer-box {
     min-width: 56px;
     padding: 10px 5px;
   }
 
-  .timer-num { font-size: 17px; }
-
-  .countdown-title {
-    font-size: 16px;
-    margin-bottom: 24px;
+  .timer-num {
+    font-size: 17px;
   }
-
-  /* MOBILE TIMELINE */
 
   #timeline-section {
     padding: 55px 28px 40px;
@@ -567,13 +619,9 @@ body {
 
   .timeline-item {
     width: 100%;
-    margin: 0 0 38px;
+    margin: 0 0 40px;
     padding: 0;
     text-align: left;
-  }
-
-  .timeline-item::before {
-    display: none;
   }
 
   .timeline-time {
@@ -592,35 +640,60 @@ body {
     line-height: 1.6;
   }
 
-  /* MOBILE VENUE */
-
   #venue-section {
-    padding-top: 30px;
     padding-bottom: 25px;
   }
 
   .venue-area {
-    margin-top: 25px;
-    margin-bottom: 5px;
-    transform: translateY(-10px);
+    margin-top: 55px;
+    margin-bottom: 10px;
+    transform: translateY(-38px);
   }
 
-  .venue-title { font-size: 49px; }
+  .venue-title {
+    font-size: 54px;
+  }
 
-  .venue-hall { font-size: 15px; }
+  .venue-hall {
+    font-size: 16px;
+  }
 
-  .venue-address { font-size: 11px; }
+  .venue-address {
+    font-size: 11px;
+    max-width: 290px;
+  }
 
   .rsvp-container {
     max-width: 300px;
-    margin-top: 55px;
-    transform: translateY(20px);
+    margin-top: 75px;
+    transform: translateY(25px);
+  }
+
+  .music-control {
+    right: 15px;
+    bottom: 16px;
+    width: 43px;
+    height: 43px;
   }
 }
 </style>
 </head>
 
 <body>
+
+<!-- BACKGROUND MUSIC -->
+<audio id="background-music" loop preload="auto">
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+</audio>
+
+<!-- MUSIC PLAY / PAUSE BUTTON -->
+<button
+  class="music-control"
+  id="music-control"
+  onclick="toggleMusic()"
+  aria-label="Play or pause music">
+  ♫
+</button>
 
 <!-- SNOW EFFECT -->
 
@@ -642,31 +715,25 @@ for (let i = 0; i < 35; i++) {
 }
 </script>
 
-<!-- SECTION 1 -->
+<!-- OPENING SECTION -->
 
 <section id="envelope-section" class="section">
 
   <div class="envelope-content">
 
-    <div id="invitation-text" class="top-invite-text">
+    <div class="top-invite-text">
       You are cordially invited
     </div>
 
-    <div class="lang-boxes-container">
-      <button class="lang-box" onclick="selectLang('en')">
-        English
-      </button>
-
-      <button class="lang-box" onclick="selectLang('fr')">
-        Français
-      </button>
-    </div>
+    <button class="start-button" onclick="startInvitation()">
+      GET STARTED
+    </button>
 
   </div>
 
 </section>
 
-<!-- SECTION 2 -->
+<!-- BIRTHDAY DETAILS -->
 
 <section id="details-section" class="section">
 
@@ -676,11 +743,11 @@ for (let i = 0; i < 35; i++) {
       Mr. & Mrs. Alex
     </div>
 
-    <div class="invites-text" id="invites-label">
+    <div class="invites-text">
       invites you to
     </div>
 
-    <div class="birthday-title" id="birthday-label">
+    <div class="birthday-title">
       8th Birthday
     </div>
 
@@ -710,7 +777,7 @@ for (let i = 0; i < 35; i++) {
 
   <div class="countdown-frame">
 
-    <div class="countdown-title" id="countdown-title">
+    <div class="countdown-title">
       Countdown to Celebration
     </div>
 
@@ -748,55 +815,55 @@ for (let i = 0; i < 35; i++) {
 
   <div class="timeline-container">
 
-    <h3 class="timeline-title" id="timeline-title-text">
+    <h3 class="timeline-title">
       Event Timeline
     </h3>
 
     <div class="timeline-item">
       <div class="timeline-time">4:00 PM</div>
       <div class="timeline-info">
-        <h4 id="t1">Grand Entrance</h4>
-        <p id="d1">Welcoming our little princess</p>
+        <h4>Grand Entrance</h4>
+        <p>Welcoming our little princess</p>
       </div>
     </div>
 
     <div class="timeline-item">
       <div class="timeline-time">4:30 PM</div>
       <div class="timeline-info">
-        <h4 id="t2">Photo Session</h4>
-        <p id="d2">Capturing magical crystal memories</p>
+        <h4>Photo Session</h4>
+        <p>Capturing magical crystal memories</p>
       </div>
     </div>
 
     <div class="timeline-item">
       <div class="timeline-time">5:15 PM</div>
       <div class="timeline-info">
-        <h4 id="t3">Party Begins</h4>
-        <p id="d3">Music and celebrations kick off</p>
+        <h4>Party Begins</h4>
+        <p>Music and celebrations kick off</p>
       </div>
     </div>
 
     <div class="timeline-item">
       <div class="timeline-time">6:00 PM</div>
       <div class="timeline-info">
-        <h4 id="t4">Dance & Games</h4>
-        <p id="d4">Fun activities for everyone</p>
+        <h4>Dance & Games</h4>
+        <p>Fun activities for everyone</p>
       </div>
     </div>
 
     <div class="timeline-item">
       <div class="timeline-time">7:30 PM</div>
       <div class="timeline-info">
-        <h4 id="t5">Cake Cutting</h4>
-        <p id="d5">Sweet moments & birthday song</p>
+        <h4>Cake Cutting</h4>
+        <p>Sweet moments & birthday song</p>
       </div>
     </div>
 
     <div class="timeline-item">
       <div class="timeline-time">8:00 PM</div>
       <div class="timeline-info">
-        <h4 id="t6">After Party</h4>
-        <p id="d6">Let's keep the celebration going!</p>
+        <h4>After Party</h4>
+        <p>Let's keep the celebration going!</p>
       </div>
     </div>
 
@@ -810,7 +877,7 @@ for (let i = 0; i < 35; i++) {
 
   <div class="venue-area">
 
-    <div class="venue-title" id="venue-heading">
+    <div class="venue-title">
       The Venue
     </div>
 
@@ -818,10 +885,10 @@ for (let i = 0; i < 35; i++) {
       Crystal Royal Palace
     </div>
 
-    <div class="venue-address" id="venue-addr">
+    <div class="venue-address">
       Avenue Coteaux, Grand Ballroom<br>
-      Near Crystal Gardens, Kinshasa<br>
-      Democratic Republic of the Congo
+      Crystal Avenue, Garden District<br>
+      Near Bluewater Plaza, Kinshasa
     </div>
 
   </div>
@@ -830,25 +897,23 @@ for (let i = 0; i < 35; i++) {
 
   <div class="rsvp-container">
 
-    <div class="rsvp-msg" id="rsvp-msg-text">
+    <div class="rsvp-msg">
       We look forward to celebrating with you!
     </div>
 
-    <div class="rsvp-title" id="rsvp-title">
+    <div class="rsvp-title">
       Will you attend?
     </div>
 
     <div class="rsvp-buttons">
 
       <button class="rsvp-btn btn-yes"
-        onclick="alert(currentLang === 'fr' ? 'Merci pour votre confirmation !' : 'Thank you for confirming!')"
-        id="btn-yes">
+        onclick="alert('Thank you for confirming!')">
         Yes
       </button>
 
       <button class="rsvp-btn btn-no"
-        onclick="alert(currentLang === 'fr' ? 'Nous penserons à vous !' : 'We will miss you!')"
-        id="btn-no">
+        onclick="alert('We will miss you!')">
         No
       </button>
 
@@ -862,165 +927,27 @@ for (let i = 0; i < 35; i++) {
 
 <script>
 
-let currentLang = 'en';
+/* OPEN INVITATION + START MUSIC */
 
-function selectLang(lang) {
+const backgroundMusic = document.getElementById('background-music');
+const musicControl = document.getElementById('music-control');
+
+async function startInvitation() {
 
   const envelopeSec = document.getElementById('envelope-section');
 
-  currentLang = lang;
-
-  if (lang === 'fr') {
-
-    document.getElementById('invitation-text').innerText =
-      "Vous êtes cordialement invités";
-
-    document.getElementById('parents-label').innerText =
-      "M. et Mme Alex";
-
-    document.getElementById('invites-label').innerText =
-      "vous invitent au";
-
-    document.getElementById('birthday-label').innerText =
-      "8ème Anniversaire";
-
-    document.getElementById('of-label').innerText =
-      "de notre chère fille";
-
-    document.getElementById('countdown-title').innerText =
-      "Compte à rebours";
-
-    document.getElementById('timeline-title-text').innerText =
-      "Déroulement de l'Événement";
-
-    document.getElementById('t1').innerText =
-      "Entrée Royale";
-
-    document.getElementById('d1').innerText =
-      "Accueil de notre petite princesse";
-
-    document.getElementById('t2').innerText =
-      "Séance Photo";
-
-    document.getElementById('d2').innerText =
-      "Immortaliser ces précieux souvenirs";
-
-    document.getElementById('t3').innerText =
-      "Début de la Fête";
-
-    document.getElementById('d3').innerText =
-      "Musique et animations";
-
-    document.getElementById('t4').innerText =
-      "Danse & Jeux";
-
-    document.getElementById('d4').innerText =
-      "Activités amusantes pour tous";
-
-    document.getElementById('t5').innerText =
-      "Découpe du Gâteau";
-
-    document.getElementById('d5').innerText =
-      "Chanson d'anniversaire";
-
-    document.getElementById('t6').innerText =
-      "Après-Fête";
-
-    document.getElementById('d6').innerText =
-      "Prolongeons la fête ensemble !";
-
-    document.getElementById('venue-heading').innerText =
-      "Le Lieu";
-
-    document.getElementById('venue-addr').innerHTML =
-      "Avenue Coteaux, Grande Salle<br>Près de Crystal Gardens, Kinshasa<br>République démocratique du Congo";
-
-    document.getElementById('rsvp-msg-text').innerText =
-      "Nous avons hâte de fêter avec vous !";
-
-    document.getElementById('rsvp-title').innerText =
-      "Serez-vous présent ?";
-
-    document.getElementById('btn-yes').innerText = "Oui";
-    document.getElementById('btn-no').innerText = "Non";
-
-  } else {
-
-    document.getElementById('invitation-text').innerText =
-      "You are cordially invited";
-
-    document.getElementById('parents-label').innerText =
-      "Mr. & Mrs. Alex";
-
-    document.getElementById('invites-label').innerText =
-      "invites you to";
-
-    document.getElementById('birthday-label').innerText =
-      "8th Birthday";
-
-    document.getElementById('of-label').innerText =
-      "of our beloved daughter";
-
-    document.getElementById('countdown-title').innerText =
-      "Countdown to Celebration";
-
-    document.getElementById('timeline-title-text').innerText =
-      "Event Timeline";
-
-    document.getElementById('t1').innerText =
-      "Grand Entrance";
-
-    document.getElementById('d1').innerText =
-      "Welcoming our little princess";
-
-    document.getElementById('t2').innerText =
-      "Photo Session";
-
-    document.getElementById('d2').innerText =
-      "Capturing magical crystal memories";
-
-    document.getElementById('t3').innerText =
-      "Party Begins";
-
-    document.getElementById('d3').innerText =
-      "Music and celebrations kick off";
-
-    document.getElementById('t4').innerText =
-      "Dance & Games";
-
-    document.getElementById('d4').innerText =
-      "Fun activities for everyone";
-
-    document.getElementById('t5').innerText =
-      "Cake Cutting";
-
-    document.getElementById('d5').innerText =
-      "Sweet moments & birthday song";
-
-    document.getElementById('t6').innerText =
-      "After Party";
-
-    document.getElementById('d6').innerText =
-      "Let's keep the celebration going!";
-
-    document.getElementById('venue-heading').innerText =
-      "The Venue";
-
-    document.getElementById('venue-addr').innerHTML =
-      "Avenue Coteaux, Grand Ballroom<br>Near Crystal Gardens, Kinshasa<br>Democratic Republic of the Congo";
-
-    document.getElementById('rsvp-msg-text').innerText =
-      "We look forward to celebrating with you!";
-
-    document.getElementById('rsvp-title').innerText =
-      "Will you attend?";
-
-    document.getElementById('btn-yes').innerText = "Yes";
-    document.getElementById('btn-no').innerText = "No";
-
-  }
-
   envelopeSec.classList.add('fade-out');
+
+  backgroundMusic.volume = 0.35;
+
+  try {
+    await backgroundMusic.play();
+    musicControl.classList.add('visible');
+    musicControl.innerHTML = 'Ⅱ';
+  } catch (error) {
+    musicControl.classList.add('visible');
+    musicControl.innerHTML = '♫';
+  }
 
   setTimeout(() => {
     envelopeSec.style.display = 'none';
@@ -1029,6 +956,23 @@ function selectLang(lang) {
       .scrollIntoView({ behavior: 'smooth' });
 
   }, 1000);
+}
+
+/* MUSIC PLAY / PAUSE */
+
+async function toggleMusic() {
+
+  if (backgroundMusic.paused) {
+    try {
+      await backgroundMusic.play();
+      musicControl.innerHTML = 'Ⅱ';
+    } catch (error) {
+      musicControl.innerHTML = '♫';
+    }
+  } else {
+    backgroundMusic.pause();
+    musicControl.innerHTML = '♫';
+  }
 
 }
 
