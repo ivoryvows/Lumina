@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -416,7 +417,7 @@ body {
   content: none;
 }
 
-/* EACH EVENT MOVED DOWN TO ALIGN WITH BACKGROUND DOTS */
+/* EVENT ALIGNMENT */
 
 .timeline-item:nth-child(3) {
   transform: translateY(12px);
@@ -479,23 +480,27 @@ body {
   padding-bottom: 30px;
 }
 
+/* VENUE TITLE MOVES INDEPENDENTLY */
+
 .venue-area {
   margin-top: 65px;
   margin-bottom: 15px;
   transform: translateY(-42px);
 }
 
-/* THE VENUE SLIGHTLY TO THE RIGHT */
-
 .venue-title {
   font-family: 'Great Vibes', cursive;
   font-size: 62px;
   color: #1a365d;
   margin-bottom: 10px;
-  transform: translateX(12px) rotate(-5deg);
+  transform: translate(-5px, 12px) rotate(-5deg);
 }
 
-/* HALL AND ADDRESS LOWER */
+/* HALL + ADDRESS MOVE TOGETHER */
+
+.venue-details {
+  transform: translateY(28px);
+}
 
 .venue-hall {
   font-family: 'Cinzel', serif;
@@ -508,16 +513,16 @@ body {
 }
 
 .venue-address {
-  font-size: 12px;
+  font-size: 14px;
   color: #2c3e50;
-  line-height: 1.7;
+  line-height: 1.8;
   margin-top: 14px;
   max-width: 330px;
   margin-left: auto;
   margin-right: auto;
 }
 
-/* RSVP MOVED LOWER */
+/* RSVP */
 
 .rsvp-container {
   margin-top: 105px;
@@ -650,8 +655,6 @@ body {
     text-align: left;
   }
 
-  /* MOBILE EVENT ALIGNMENT */
-
   .timeline-item:nth-child(3) {
     transform: translateY(12px);
   }
@@ -700,7 +703,11 @@ body {
 
   .venue-title {
     font-size: 54px;
-    transform: translateX(10px) rotate(-5deg);
+    transform: translate(-5px, 12px) rotate(-5deg);
+  }
+
+  .venue-details {
+    transform: translateY(25px);
   }
 
   .venue-hall {
@@ -709,9 +716,10 @@ body {
   }
 
   .venue-address {
-    font-size: 11px;
+    font-size: 13px;
     max-width: 290px;
     margin-top: 12px;
+    line-height: 1.8;
   }
 
   .rsvp-container {
@@ -732,12 +740,12 @@ body {
 
 <body>
 
-<!-- BACKGROUND MUSIC -->
+<!-- SOFT PIANO MUSIC -->
 <audio id="background-music" loop preload="auto">
-  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+  <source src="soft-piano.mp3" type="audio/mpeg">
 </audio>
 
-<!-- MUSIC PLAY / PAUSE BUTTON -->
+<!-- MUSIC BUTTON -->
 <button
   class="music-control"
   id="music-control"
@@ -932,14 +940,19 @@ for (let i = 0; i < 35; i++) {
       The Venue
     </div>
 
-    <div class="venue-hall">
-      Crystal Royal Palace
-    </div>
+    <!-- HALL AND ADDRESS MOVE TOGETHER -->
+    <div class="venue-details">
 
-    <div class="venue-address">
-      Avenue Coteaux, Grand Ballroom<br>
-      Crystal Avenue, Garden District<br>
-      Near Bluewater Plaza, Kinshasa
+      <div class="venue-hall">
+        Crystal Royal Palace
+      </div>
+
+      <div class="venue-address">
+        Avenue Coteaux, Grand Ballroom<br>
+        Crystal Avenue, Garden District<br>
+        Near Bluewater Plaza, Kinshasa
+      </div>
+
     </div>
 
   </div>
@@ -989,7 +1002,7 @@ async function startInvitation() {
 
   envelopeSec.classList.add('fade-out');
 
-  backgroundMusic.volume = 0.35;
+  backgroundMusic.volume = 0.25;
 
   try {
     await backgroundMusic.play();
