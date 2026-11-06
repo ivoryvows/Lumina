@@ -168,8 +168,6 @@ body {
   letter-spacing: 1px;
 }
 
-/* Move Mr. & Mrs. slightly down */
-
 #parents-label {
   margin-top: 48px;
 }
@@ -189,7 +187,6 @@ body {
   color: #3182ce;
   margin-top: 25px;
   margin-bottom: 25px;
-  line-height: 1.2;
 }
 
 #of-label {
@@ -208,13 +205,14 @@ body {
   margin-bottom: 25px;
 }
 
-/* DATE - MOVED UP */
+/* DATE */
 
 .date-display {
   font-family: 'Cinzel', serif;
   font-size: 16px;
   color: #2d3748;
-  margin-top: 10px;
+  margin-top: -5px;
+  transform: translateY(-15px);
   letter-spacing: 1.5px;
   display: flex;
   align-items: center;
@@ -418,6 +416,28 @@ body {
   content: none;
 }
 
+/* EACH EVENT MOVED DOWN TO ALIGN WITH BACKGROUND DOTS */
+
+.timeline-item:nth-child(3) {
+  transform: translateY(12px);
+}
+
+.timeline-item:nth-child(4) {
+  transform: translateY(24px);
+}
+
+.timeline-item:nth-child(5) {
+  transform: translateY(36px);
+}
+
+.timeline-item:nth-child(6) {
+  transform: translateY(48px);
+}
+
+.timeline-item:nth-child(7) {
+  transform: translateY(60px);
+}
+
 .timeline-time {
   font-weight: 600;
   color: #3182ce;
@@ -465,18 +485,23 @@ body {
   transform: translateY(-42px);
 }
 
+/* THE VENUE SLIGHTLY TO THE RIGHT */
+
 .venue-title {
   font-family: 'Great Vibes', cursive;
   font-size: 62px;
   color: #1a365d;
   margin-bottom: 10px;
-  transform: rotate(-5deg);
+  transform: translateX(12px) rotate(-5deg);
 }
+
+/* HALL AND ADDRESS LOWER */
 
 .venue-hall {
   font-family: 'Cinzel', serif;
   font-size: 18px;
   color: #3182ce;
+  margin-top: 20px;
   margin-bottom: 8px;
   font-weight: bold;
   letter-spacing: 1px;
@@ -486,16 +511,16 @@ body {
   font-size: 12px;
   color: #2c3e50;
   line-height: 1.7;
-  margin-top: 8px;
+  margin-top: 14px;
   max-width: 330px;
   margin-left: auto;
   margin-right: auto;
 }
 
-/* RSVP */
+/* RSVP MOVED LOWER */
 
 .rsvp-container {
-  margin-top: 85px;
+  margin-top: 105px;
   margin-bottom: 5px;
   background: rgba(255,255,255,.88);
   padding: 15px 20px;
@@ -504,7 +529,7 @@ body {
   width: 100%;
   box-shadow: 0 4px 12px rgba(0,0,0,.06);
   backdrop-filter: blur(5px);
-  transform: translateY(28px);
+  transform: translateY(45px);
 }
 
 .rsvp-msg {
@@ -579,7 +604,8 @@ body {
   .date-display {
     gap: 10px;
     font-size: 15px;
-    margin-top: 8px;
+    margin-top: -5px;
+    transform: translateY(-18px);
   }
 
   .date-line {
@@ -624,6 +650,28 @@ body {
     text-align: left;
   }
 
+  /* MOBILE EVENT ALIGNMENT */
+
+  .timeline-item:nth-child(3) {
+    transform: translateY(12px);
+  }
+
+  .timeline-item:nth-child(4) {
+    transform: translateY(24px);
+  }
+
+  .timeline-item:nth-child(5) {
+    transform: translateY(36px);
+  }
+
+  .timeline-item:nth-child(6) {
+    transform: translateY(48px);
+  }
+
+  .timeline-item:nth-child(7) {
+    transform: translateY(60px);
+  }
+
   .timeline-time {
     font-size: 13px;
     text-align: left;
@@ -652,21 +700,24 @@ body {
 
   .venue-title {
     font-size: 54px;
+    transform: translateX(10px) rotate(-5deg);
   }
 
   .venue-hall {
     font-size: 16px;
+    margin-top: 18px;
   }
 
   .venue-address {
     font-size: 11px;
     max-width: 290px;
+    margin-top: 12px;
   }
 
   .rsvp-container {
     max-width: 300px;
-    margin-top: 75px;
-    transform: translateY(25px);
+    margin-top: 95px;
+    transform: translateY(40px);
   }
 
   .music-control {
