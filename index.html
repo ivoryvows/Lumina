@@ -16,7 +16,10 @@
   padding: 0;
 }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  background: #f0f4f8;
+}
 
 body {
   font-family: 'Montserrat', sans-serif;
@@ -54,6 +57,7 @@ body {
 
 .section {
   min-height: 100vh;
+  min-height: 100svh;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -69,7 +73,9 @@ body {
 
 #envelope-section {
   background-image: url('open.JPG');
-  transition: opacity 1.2s ease-in-out;
+  background-size: cover;
+  background-position: center;
+  transition: opacity 1s ease-in-out;
 }
 
 #envelope-section.fade-out {
@@ -127,13 +133,13 @@ body {
   position: fixed;
   right: 20px;
   bottom: 22px;
-  width: 46px;
-  height: 46px;
+  width: 48px;
+  height: 48px;
   border: 1px solid rgba(176,196,222,.9);
   border-radius: 50%;
-  background: rgba(255,255,255,.9);
+  background: rgba(255,255,255,.94);
   color: #1a365d;
-  font-size: 19px;
+  font-size: 21px;
   display: none;
   align-items: center;
   justify-content: center;
@@ -150,7 +156,11 @@ body {
 
 #details-section {
   background-image: url('2.JPG');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   text-align: center;
+  scroll-margin-top: 0;
 }
 
 .details-direct-text {
@@ -417,8 +427,6 @@ body {
   content: none;
 }
 
-/* EVENT ALIGNMENT */
-
 .timeline-item:nth-child(3) {
   transform: translateY(12px);
 }
@@ -474,18 +482,19 @@ body {
   background-image: url('5.JPG');
   background-size: contain;
   background-repeat: no-repeat;
+  background-position: center center;
   background-color: #f0f4f8;
   text-align: center;
   justify-content: flex-end;
   padding-bottom: 30px;
 }
 
-/* VENUE TITLE MOVES INDEPENDENTLY */
+/* THE VENUE: LOWER AND SLIGHTLY LEFT */
 
 .venue-area {
   margin-top: 65px;
   margin-bottom: 15px;
-  transform: translateY(-42px);
+  transform: translateY(5px);
 }
 
 .venue-title {
@@ -493,13 +502,13 @@ body {
   font-size: 62px;
   color: #1a365d;
   margin-bottom: 10px;
-  transform: translate(-5px, 12px) rotate(-5deg);
+  transform: translate(-16px, 35px) rotate(-5deg);
 }
 
-/* HALL + ADDRESS MOVE TOGETHER */
+/* PALACE + ADDRESS: MOVE DOWN TOGETHER */
 
 .venue-details {
-  transform: translateY(28px);
+  transform: translateY(85px);
 }
 
 .venue-hall {
@@ -517,7 +526,7 @@ body {
   color: #2c3e50;
   line-height: 1.8;
   margin-top: 14px;
-  max-width: 330px;
+  max-width: 340px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -693,21 +702,22 @@ body {
 
   #venue-section {
     padding-bottom: 25px;
+    background-position: center center;
   }
 
   .venue-area {
     margin-top: 55px;
     margin-bottom: 10px;
-    transform: translateY(-38px);
+    transform: translateY(12px);
   }
 
   .venue-title {
     font-size: 54px;
-    transform: translate(-5px, 12px) rotate(-5deg);
+    transform: translate(-13px, 28px) rotate(-5deg);
   }
 
   .venue-details {
-    transform: translateY(25px);
+    transform: translateY(72px);
   }
 
   .venue-hall {
@@ -731,8 +741,8 @@ body {
   .music-control {
     right: 15px;
     bottom: 16px;
-    width: 43px;
-    height: 43px;
+    width: 44px;
+    height: 44px;
   }
 }
 </style>
@@ -742,10 +752,10 @@ body {
 
 <!-- SOFT PIANO MUSIC -->
 <audio id="background-music" loop preload="auto">
-  <source src="soft-piano.mp3" type="audio/mpeg">
+  <source src="https://www.orangefreesounds.com/wp-content/uploads/2015/01/Soft-piano-music.mp3" type="audio/mpeg">
 </audio>
 
-<!-- MUSIC BUTTON -->
+<!-- MUSIC PLAY / PAUSE BUTTON -->
 <button
   class="music-control"
   id="music-control"
@@ -940,7 +950,8 @@ for (let i = 0; i < 35; i++) {
       The Venue
     </div>
 
-    <!-- HALL AND ADDRESS MOVE TOGETHER -->
+    <!-- PALACE AND ADDRESS MOVE TOGETHER -->
+
     <div class="venue-details">
 
       <div class="venue-hall">
@@ -991,7 +1002,7 @@ for (let i = 0; i < 35; i++) {
 
 <script>
 
-/* OPEN INVITATION + START MUSIC */
+/* OPEN INVITATION + START PIANO MUSIC */
 
 const backgroundMusic = document.getElementById('background-music');
 const musicControl = document.getElementById('music-control');
@@ -1002,22 +1013,27 @@ async function startInvitation() {
 
   envelopeSec.classList.add('fade-out');
 
-  backgroundMusic.volume = 0.25;
+  backgroundMusic.volume = 0.22;
+
+  musicControl.classList.add('visible');
 
   try {
     await backgroundMusic.play();
-    musicControl.classList.add('visible');
     musicControl.innerHTML = 'Ⅱ';
   } catch (error) {
-    musicControl.classList.add('visible');
     musicControl.innerHTML = '♫';
+    console.log('Music could not start:', error);
   }
 
   setTimeout(() => {
+
     envelopeSec.style.display = 'none';
 
     document.getElementById('details-section')
-      .scrollIntoView({ behavior: 'smooth' });
+      .scrollIntoView({
+        behavior: 'instant',
+        block: 'start'
+      });
 
   }, 1000);
 }
@@ -1027,15 +1043,20 @@ async function startInvitation() {
 async function toggleMusic() {
 
   if (backgroundMusic.paused) {
+
     try {
       await backgroundMusic.play();
       musicControl.innerHTML = 'Ⅱ';
     } catch (error) {
       musicControl.innerHTML = '♫';
+      alert('Music could not load. Please check your internet connection.');
     }
+
   } else {
+
     backgroundMusic.pause();
     musicControl.innerHTML = '♫';
+
   }
 
 }
