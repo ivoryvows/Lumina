@@ -78,7 +78,7 @@
       font-family: 'Cinzel', serif;
       font-size: 18px;
       color: #1a365d;
-      letter-spacing: 1px;
+      letter-spacing: 1.5px;
       font-weight: 600;
       text-shadow: 0 2px 4px rgba(255,255,255,0.8);
     }
@@ -116,133 +116,160 @@
     }
 
     .details-direct-text {
-      max-width: 500px;
+      max-width: 550px;
       width: 100%;
       padding: 20px;
+      margin-top: -40px; /* Text moved slightly upwards */
     }
 
     .parents-text {
-      font-size: 16px;
-      font-weight: 500;
+      font-size: 22px; /* Increased font size */
+      font-weight: 600;
       color: #2c3e50;
-      margin-bottom: 4px;
-      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+      letter-spacing: 1px;
     }
 
     .invites-text {
-      font-size: 13px;
+      font-size: 15px;
       color: #4a5568;
-      margin-bottom: 12px;
+      margin-bottom: 24px;
       text-transform: uppercase;
-      letter-spacing: 1.5px;
+      letter-spacing: 2px;
     }
 
     .birthday-title {
       font-family: 'Great Vibes', cursive;
-      font-size: 42px;
+      font-size: 58px; /* Bigger font size */
       color: #3182ce;
-      margin-bottom: 6px;
+      margin-bottom: 16px;
+      line-height: 1.2;
     }
 
     .child-name {
       font-family: 'Great Vibes', cursive;
-      font-size: 48px;
+      font-size: 56px;
       color: #2b6cb0;
-      margin: 8px 0;
+      margin: 16px 0 24px 0;
     }
 
+    /* Date Shifted Down with Blue Heart Outline around 10 */
     .date-display {
       font-family: 'Cinzel', serif;
-      font-size: 15px;
+      font-size: 16px;
       color: #2d3748;
-      margin-top: 15px;
-      letter-spacing: 1px;
+      margin-top: 35px;
+      letter-spacing: 1.5px;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 12px;
+      gap: 15px;
     }
 
     .date-line {
-      width: 30px;
+      width: 35px;
       height: 1px;
       background-color: #3182ce;
     }
 
-    /* COUNTDOWN SECTION */
+    .heart-wrapper {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      color: #2b6cb0;
+      font-weight: bold;
+    }
+
+    .heart-wrapper::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: transparent;
+      clip-path: path('M 21 36 C 21 36 4 24 4 13 C 4 6.5 9 3 14 3 C 18 3 20.5 5.5 21 7.5 C 21.5 5.5 24 3 28 3 C 33 3 38 6.5 38 13 C 38 24 21 36 21 36 Z');
+      border: 2px solid #3182ce;
+      box-sizing: border-box;
+    }
+
+    /* COUNTDOWN SECTION (Gradient Start from 2.JPG End to 3.jpg Start) */
     #countdown-section {
-      background: linear-gradient(to bottom, rgba(240, 244, 248, 1), rgba(226, 232, 240, 0.8), rgba(240, 244, 248, 1));
+      background: linear-gradient(to bottom, #f0f4f8 0%, #e2e8f0 50%, #f0f4f8 100%);
       text-align: center;
-      padding: 60px 20px;
+      padding: 50px 20px;
     }
 
     .countdown-frame {
       border: 1px solid #cbd5e0;
-      padding: 25px;
+      padding: 20px;
       border-radius: 15px;
-      background: rgba(255, 255, 255, 0.85);
+      background: rgba(255, 255, 255, 0.9);
       box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-      max-width: 420px;
+      max-width: 400px;
       width: 100%;
     }
 
     .countdown-title {
       font-family: 'Cinzel', serif;
-      font-size: 17px;
+      font-size: 16px;
       color: #2c3e50;
-      margin-bottom: 15px;
+      margin-bottom: 12px;
     }
 
     .timer-grid {
       display: flex;
       justify-content: center;
-      gap: 15px;
+      gap: 12px;
       font-family: 'Cinzel', serif;
     }
 
     .timer-box {
       background: #ebf8ff;
-      padding: 12px;
+      padding: 10px;
       border-radius: 8px;
-      min-width: 60px;
+      min-width: 55px;
     }
 
     .timer-num {
-      font-size: 20px;
+      font-size: 18px;
       font-weight: bold;
       color: #2b6cb0;
     }
 
     .timer-label {
-      font-size: 10px;
+      font-size: 9px;
       color: #4a5568;
       text-transform: uppercase;
-      margin-top: 4px;
+      margin-top: 3px;
     }
 
-    /* SECTION 3: 3.jpg (Lowercase) */
+    /* SECTION 3: 3.jpg (Timeline Right Aligned & Spaced with Dots) */
     #timeline-section {
       background-image: url('3.jpg');
-      align-items: flex-start;
-      padding-left: 8%;
+      align-items: flex-end; /* Moved to Opposite / Right Side */
+      padding-right: 8%;
+      padding-left: 20px;
     }
 
     .timeline-container {
-      max-width: 450px;
+      max-width: 420px;
       width: 100%;
-      padding: 20px 0;
+      padding: 10px 0;
     }
 
     .timeline-title {
       font-family: 'Great Vibes', cursive;
-      font-size: 45px;
+      font-size: 50px;
       color: #1a365d;
-      margin-bottom: 25px;
-      margin-top: -30px;
+      margin-bottom: 35px;
+      margin-top: -60px; /* Timeline Heading Moved Up */
+      text-align: left;
     }
 
+    /* Spacing between items to match dot background */
     .timeline-item {
-      margin-bottom: 20px;
+      margin-bottom: 38px;
       text-align: left;
     }
 
@@ -251,46 +278,53 @@
       color: #3182ce;
       font-size: 14px;
       font-family: 'Cinzel', serif;
+      letter-spacing: 0.5px;
     }
 
     .timeline-info h4 {
       font-family: 'Cinzel', serif;
       font-size: 15px;
       color: #2c3e50;
-      margin-top: 2px;
+      margin-top: 3px;
+      letter-spacing: 0.5px;
     }
 
     .timeline-info p {
       font-size: 12px;
       color: #4a5568;
-      margin-top: 1px;
+      margin-top: 2px;
+      line-height: 1.3;
     }
 
-    /* SECTION 4: 5.JPG */
+    /* SECTION 4: 5.JPG (Contain Size to Avoid Cropping) */
     #venue-section {
       background-image: url('5.JPG');
+      background-size: contain; /* Prevents image from cutting */
+      background-repeat: no-repeat;
+      background-color: #f0f4f8;
       text-align: center;
       justify-content: flex-end;
-      padding-bottom: 50px;
+      padding-bottom: 30px;
     }
 
     .venue-area {
-      margin-top: 140px;
-      margin-bottom: 30px;
+      margin-top: 100px;
+      margin-bottom: 20px;
     }
 
     .venue-title {
       font-family: 'Great Vibes', cursive;
-      font-size: 55px;
+      font-size: 65px; /* Larger Venue Title */
       color: #1a365d;
-      margin-bottom: 10px;
+      margin-bottom: 5px;
+      margin-top: -20px; /* Shifted Upwards */
     }
 
     .venue-hall {
       font-family: 'Cinzel', serif;
       font-size: 20px;
       color: #3182ce;
-      margin-bottom: 8px;
+      margin-bottom: 12px;
       font-weight: bold;
     }
 
@@ -298,47 +332,47 @@
       font-size: 13px;
       color: #2c3e50;
       line-height: 1.6;
-      margin-top: 15px;
+      margin-top: 25px; /* Address Shifted Down */
     }
 
-    /* Bottom RSVP */
+    /* Compact Small RSVP Container */
     .rsvp-container {
-      margin-top: 20px;
-      background: rgba(255, 255, 255, 0.85);
-      padding: 25px 30px;
-      border-radius: 12px;
-      max-width: 420px;
+      margin-top: 15px;
+      background: rgba(255, 255, 255, 0.88);
+      padding: 15px 20px; /* Reduced Padding / Size */
+      border-radius: 10px;
+      max-width: 320px; /* Smaller Container Width */
       width: 100%;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
       backdrop-filter: blur(4px);
     }
 
     .rsvp-msg {
-      font-size: 13px;
+      font-size: 12px;
       color: #4a5568;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
       font-style: italic;
     }
 
     .rsvp-title {
       font-family: 'Cinzel', serif;
-      font-size: 17px;
+      font-size: 15px;
       color: #1a365d;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
 
     .rsvp-buttons {
       display: flex;
       justify-content: center;
-      gap: 15px;
+      gap: 12px;
     }
 
     .rsvp-btn {
-      padding: 8px 25px;
+      padding: 6px 20px;
       font-family: 'Cinzel', serif;
-      font-size: 13px;
+      font-size: 12px;
       border: none;
-      border-radius: 20px;
+      border-radius: 15px;
       cursor: pointer;
       transition: all 0.3s ease;
     }
@@ -396,7 +430,7 @@
       <div class="date-display">
         <span>Jan</span>
         <div class="date-line"></div>
-        <span>10</span>
+        <div class="heart-wrapper">10</div>
         <div class="date-line"></div>
         <span>2027</span>
       </div>
@@ -404,7 +438,7 @@
   </section>
 
   <!-- COUNTDOWN SECTION -->
-  <section id="countdown-section" class="section" style="min-height: 45vh;">
+  <section id="countdown-section" class="section" style="min-height: 40vh;">
     <div class="countdown-frame">
       <div class="countdown-title" id="countdown-title">Countdown to Celebration</div>
       <div class="timer-grid">
@@ -428,7 +462,7 @@
     </div>
   </section>
 
-  <!-- SECTION 3: 3.jpg -->
+  <!-- SECTION 3: 3.jpg (Opposite Side Alignment & Spaced) -->
   <section id="timeline-section" class="section">
     <div class="timeline-container">
       <h3 class="timeline-title" id="timeline-title-text">Event Timeline</h3>
@@ -484,7 +518,7 @@
       <div class="venue-address" id="venue-addr">Avenue Coteaux, Grand Ballroom<br>Kinshasa, Democratic Republic of the Congo</div>
     </div>
 
-    <!-- RSVP Section at the Bottom -->
+    <!-- RSVP Section -->
     <div class="rsvp-container">
       <div class="rsvp-msg" id="rsvp-msg-text">We look forward to celebrating with you!</div>
       <div class="rsvp-title" id="rsvp-title">Will you attend?</div>
