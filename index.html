@@ -7,6 +7,15 @@
 <meta name="theme-color" content="#f0f4f8">
 <title>Crystal - Birthday Invitation</title>
 
+<script>
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual';
+}
+window.addEventListener('pageshow', function () {
+  window.scrollTo(0, 0);
+});
+</script>
+
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cinzel:wght@400;500;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
@@ -76,10 +85,13 @@ body {
   background-size: cover;
   background-position: center;
   transition: opacity 1s ease-in-out;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
 
 #envelope-section.fade-out {
   opacity: 0;
+  pointer-events: none;
 }
 
 .envelope-content {
@@ -489,8 +501,6 @@ body {
   padding-bottom: 30px;
 }
 
-/* THE VENUE: LOWER AND SLIGHTLY LEFT */
-
 .venue-area {
   margin-top: 65px;
   margin-bottom: 15px;
@@ -502,10 +512,8 @@ body {
   font-size: 54px;
   color: #1a365d;
   margin-bottom: 10px;
-  transform: translate(-20px, 35px) rotate(-5deg);
+  transform: translate(-30px, 35px) rotate(-5deg);
 }
-
-/* PALACE + ADDRESS: MOVE DOWN TOGETHER */
 
 .venue-details {
   transform: translateY(85px);
@@ -543,7 +551,7 @@ body {
   width: 100%;
   box-shadow: 0 4px 12px rgba(0,0,0,.06);
   backdrop-filter: blur(5px);
-  transform: translateY(54px);
+  transform: translateY(70px);
 }
 
 .rsvp-msg {
@@ -713,7 +721,7 @@ body {
 
   .venue-title {
     font-size: 54px;
-    transform: translate(-13px, 28px) rotate(-5deg);
+    transform: translate(-23px, 28px) rotate(-5deg);
   }
 
   .venue-details {
@@ -735,7 +743,7 @@ body {
   .rsvp-container {
     max-width: 300px;
     margin-top: 95px;
-    transform: translateY(40px);
+    transform: translateY(55px);
   }
 
   .music-control {
@@ -786,7 +794,14 @@ for (let i = 0; i < 35; i++) {
 
 <!-- OPENING SECTION -->
 
-<section id="envelope-section" class="section">
+<section
+  id="envelope-section"
+  class="section"
+  onclick="startInvitation()"
+  onkeydown="if(event.key === 'Enter' || event.key === ' ') { event.preventDefault(); startInvitation(); }"
+  role="button"
+  tabindex="0"
+  aria-label="Tap to open invitation">
 
   <div class="envelope-content">
 
@@ -794,7 +809,7 @@ for (let i = 0; i < 35; i++) {
       You are cordially invited
     </div>
 
-    <button class="start-button" onclick="startInvitation()">
+    <button class="start-button" type="button">
       GET STARTED
     </button>
 
@@ -809,7 +824,7 @@ for (let i = 0; i < 35; i++) {
   <div class="details-direct-text">
 
     <div class="parents-text" id="parents-label">
-      Mr. & Mrs. Alex
+      Mr. &amp; Mrs. Alex
     </div>
 
     <div class="invites-text">
@@ -915,7 +930,7 @@ for (let i = 0; i < 35; i++) {
     <div class="timeline-item">
       <div class="timeline-time">6:00 PM</div>
       <div class="timeline-info">
-        <h4>Dance & Games</h4>
+        <h4>Dance &amp; Games</h4>
         <p>Fun activities for everyone</p>
       </div>
     </div>
@@ -924,7 +939,7 @@ for (let i = 0; i < 35; i++) {
       <div class="timeline-time">7:30 PM</div>
       <div class="timeline-info">
         <h4>Cake Cutting</h4>
-        <p>Sweet moments & birthday song</p>
+        <p>Sweet moments &amp; birthday song</p>
       </div>
     </div>
 
@@ -949,8 +964,6 @@ for (let i = 0; i < 35; i++) {
     <div class="venue-title">
       The Venue
     </div>
-
-    <!-- PALACE AND ADDRESS MOVE TOGETHER -->
 
     <div class="venue-details">
 
@@ -1007,14 +1020,18 @@ for (let i = 0; i < 35; i++) {
 const backgroundMusic = document.getElementById('background-music');
 const musicControl = document.getElementById('music-control');
 
+let invitationStarted = false;
+
 async function startInvitation() {
+
+  if (invitationStarted) return;
+  invitationStarted = true;
 
   const envelopeSec = document.getElementById('envelope-section');
 
   envelopeSec.classList.add('fade-out');
 
   backgroundMusic.volume = 0.22;
-
   musicControl.classList.add('visible');
 
   try {
@@ -1029,11 +1046,15 @@ async function startInvitation() {
 
     envelopeSec.style.display = 'none';
 
-    document.getElementById('details-section')
-      .scrollIntoView({
-        behavior: 'instant',
-        block: 'start'
-      });
+    const detailsSection = document.getElementById('details-section');
+
+    /* Avoid restoring an old scroll position */
+    document.documentElement.style.scrollBehavior = 'auto';
+    window.scrollTo(0, detailsSection.offsetTop);
+
+    requestAnimationFrame(() => {
+      document.documentElement.style.scrollBehavior = 'smooth';
+    });
 
   }, 1000);
 }
